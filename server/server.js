@@ -1,15 +1,13 @@
 const express = require('express');
+const allPokemons = require('./routes/pokemons');
 const app = express();
-const pokemonListRoutes = require('./routes/pokemons');
-const log = require('pino-http')();
-const cors = require('cors');
 
-app.use(cors());
-//app.use(log);
+app.use(express.json());
 
-app.use('/',pokemonListRoutes)
+app.use('/api/v2/pokemon', allPokemons)
 
-const port = 8080;
+const port = process.env.PORT || 3001;
+
 app.listen(port, (error) => {
     if(error){
         console.log('Something went wrong', error);
