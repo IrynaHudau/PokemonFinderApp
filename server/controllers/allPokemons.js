@@ -57,7 +57,7 @@ const createNewURLPagination = (url) => {
         let parser = new URL(url);
         let newLimit = parser.searchParams.get('limit');
         let newOffset = parser.searchParams.get('offset');
-        let newURL = `http://localhost:3001/pokemon?limit=${newLimit}&offset=${newOffset}`
+        let newURL = `http://localhost:3001/api/v2/pokemon?limit=${newLimit}&offset=${newOffset}`
         return newURL;
     }
 };
@@ -111,7 +111,6 @@ const getAllPokemons = (req, res) => {
                 myData["results"] = data;
                 res.send(myData);
             });
-           //res.send(myData);
         }
     );
 };

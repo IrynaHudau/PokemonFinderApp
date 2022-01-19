@@ -42,7 +42,6 @@ const getPokemon = (req, res) => {
     let pokemonData = {};
     getPokemonFullDescription(name).then(
         data => {
-            //console.log(data);
             pokemonData["id"] = data.id;
             pokemonData["name"] = data.name;
             pokemonData["height"] = data.height;
